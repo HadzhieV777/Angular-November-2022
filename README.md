@@ -8,3 +8,5 @@ The Angular course provides Basic understanding of TypeScript and Angular Covers
  - SOLID, RxJS, Observables, Services
  - NgModule, Routing, Guards, Lazy Loading
  - Directives, Template-Driven & Reactive Forms
+ - Pipes, JWT, Interceptors, Subjects
+ - Redux State Management, NgRX
