@@ -1,0 +1,11 @@
+{
+  "name": "ts-demo",
+  "version": "1.0.0",
+  "description": "A typescript demo",
+  "main": "index.js",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "typescript": "^4.8.4"
+  }
+}
