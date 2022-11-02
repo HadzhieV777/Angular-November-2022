@@ -1,0 +1,14 @@
+{
+  "name": "lab_typescript_playground",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "combined": "yarn run build && yarn run start"
+  },
+  "license": "None",
+  "dependencies": {
+    "typescript": "^4.8.4"
+  }
+}
