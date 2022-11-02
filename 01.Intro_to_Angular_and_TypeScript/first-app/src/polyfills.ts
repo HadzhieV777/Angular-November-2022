@@ -46,7 +46,9 @@
  * Zone JS is required by default for Angular itself.
  */
 import 'zone.js';  // Included with Angular CLI.
-
+// zone.js monitors all async operations, and when async operation
+// occurs Angular will run change detection to check for changes
+// if changes { Angular will update the view with new val}
 
 /***************************************************************************************************
  * APPLICATION IMPORTS
