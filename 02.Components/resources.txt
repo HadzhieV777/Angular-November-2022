@@ -1,0 +1,38 @@
+ --- Introduction to components and templates ---
+https://angular.io/guide/architecture-components
+
+ --- Angular + Web Components: a complete guide ---
+https://indepth.dev/posts/1116/angular-web-components-a-complete-guide
+
+ --- Angular Directive ---
+https://angular.io/api/core/Directive
+
+ --- Root app Module --- 
+https://www.pluralsight.com/guides/understanding-the-angular-root-app-module
+
+ --- EventEmitter ---
+https://angular.io/api/core/EventEmitter
+
+ --- Intro to modules ---
+https://angular.io/guide/architecture-modules
+
+ --- Schematics ---
+https://angular.io/guide/schematics
+
+ --- Binding syntax  ---
+https://angular.io/guide/binding-syntax
+
+ --- Angular documentation style guide ---
+https://angular.io/guide/docs-style-guide
+
+ --- Monkey patching in JavaScript ---
+https://www.audero.it/blog/2016/12/05/monkey-patching-javascript/
+
+ --- Lifecycle hooks ---
+https://angular.io/guide/lifecycle-hooks
+  
+ --- More ---
+https://www.electronjs.org/
+https://web.dev/rendering-on-the-web/
+https://en.wikipedia.org/wiki/Pipeline_%28software%29
+
