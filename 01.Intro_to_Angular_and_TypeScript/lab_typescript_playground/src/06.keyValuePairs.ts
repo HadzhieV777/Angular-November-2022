@@ -1,0 +1,3 @@
+class KeyValuePair<T, U> {
+    
+}
