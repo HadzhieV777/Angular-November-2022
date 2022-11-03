@@ -31,3 +31,6 @@ https://medium.com/@quinn.royston/server-side-rendering-213f66b27229
 
  --- DefinitelyTyped repo ---
 https://github.com/DefinitelyTyped/DefinitelyTyped
+
+ --- Generic classes TS ---
+https://www.tutorialsteacher.com/typescript/typescript-generic-class
