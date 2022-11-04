@@ -16,7 +16,10 @@ export class ListComponent {
       firstName: "Gosho",
       lastName: 'Goshev'
     }
-  ]
+  ];
+
+  showLastName = false;
+  
   constructor() {
     // setTimeout(() => {
     //   this.myProp = 'Hello Other World';
