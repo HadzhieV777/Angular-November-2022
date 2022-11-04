@@ -25,6 +25,9 @@ https://angular.io/guide/binding-syntax
  --- Angular documentation style guide ---
 https://angular.io/guide/docs-style-guide
 
+ --- Shadow DOM in Angular ---
+ https://dev.to/ummeq/shadow-dom-in-angular-j08
+
  --- Monkey patching in JavaScript ---
 https://www.audero.it/blog/2016/12/05/monkey-patching-javascript/
 
