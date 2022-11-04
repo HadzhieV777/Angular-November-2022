@@ -5,14 +5,15 @@ import { AppComponent } from './app.component';
 import { ListComponent } from './list/list.component';
 
 @NgModule({
+  // Template specific items
   declarations: [
     AppComponent,
     ListComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule // This includes CommonModule
   ],
-  providers: [],
+  providers: [], // used for DI
   bootstrap: [AppComponent]
 })
 export class AppModule { }
