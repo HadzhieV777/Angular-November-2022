@@ -19,10 +19,14 @@ export class ListComponent {
   ];
 
   showLastName = false;
-  
+
   constructor() {
     // setTimeout(() => {
     //   this.myProp = 'Hello Other World';
     // }, 1000);
+  }
+
+  handleClickEvent() {
+    this.showLastName = !this.showLastName;
   }
 }
