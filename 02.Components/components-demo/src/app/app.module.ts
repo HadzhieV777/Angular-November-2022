@@ -3,12 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { ListComponent } from './list/list.component';
+import { ListItemComponent } from './list-item/list-item.component';
 
 @NgModule({
   // Template specific items
   declarations: [
     AppComponent,
-    ListComponent
+    ListComponent,
+    ListItemComponent
   ],
   imports: [
     BrowserModule // This includes CommonModule
