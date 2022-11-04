@@ -1,2 +1,12 @@
 <!-- <p id="title">This is called interpolation {{myProp}}</p> -->
-<p id="title"></p>
+
+<div id="list-container">
+  <div *ngFor="let user of users" class="list-item">
+    <ng-container>{{ user.firstName }}</ng-container>
+    <ng-container *ngIf="showLastName">{{ user.lastName }}</ng-container>
+  </div>
+</div>
+
+<!-- When ng-template is parsed 1 time, can be used many times in our app -->
+
+<!-- <ng-container> - placeholder/ dummy element -->
