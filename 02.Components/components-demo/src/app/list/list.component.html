@@ -1,9 +1,10 @@
 <!-- <p id="title">This is called interpolation {{myProp}}</p> -->
-
+<button (click)="handleClickEvent()">Toggle</button>
+<!-- el.addEventListener('click', ($event) => this.handleClickEvent(event)); -->
 <div id="list-container">
   <div *ngFor="let user of users" class="list-item">
-    <ng-container>{{ user.firstName }}</ng-container>
-    <ng-container *ngIf="showLastName">{{ user.lastName }}</ng-container>
+    <ng-container>{{ user.firstName }}</ng-container> 
+    <ng-container *ngIf="showLastName"> {{ user.lastName }}</ng-container>
   </div>
 </div>
 
