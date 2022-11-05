@@ -4,13 +4,22 @@
   <ng-container *ngIf="!showLastName">Show</ng-container>
 </button>
 
-<div id="list-container">
-  <div *ngFor="let user of users" class="list-item">
-    <ng-container>{{ user.firstName }}</ng-container>
-    <ng-container *ngIf="showLastName"> {{ user.lastName }}</ng-container>
-  </div>
+<div *ngIf="showSelectedIndex">
+  Selected index is {{ selectedUserIndex }}
 </div>
+<ul id="list-container">
+  <li *ngFor="let user of users; let i= index;" class="list-item">
+    <app-list-item [user]="user" [showLastName]="showLastName" 
+    (click)="listItemClickHandler(i)" (customEvent)="customEventHandler($event)"></app-list-item>
+  </li>
+</ul>
 
 <!-- When ng-template is parsed 1 time, can be used many times in our app -->
 
 <!-- <ng-container> - placeholder/ dummy element -->
+
+<!-- 
+ ** Remember that HTML attributes and DOM properties are different things, even when they have the same name.
+  In Angular, the only role of HTML attributes is to initialize element and directive state.
+  When you write a data binding, you're dealing exclusively with the DOM properties and events of the target object. 
+-->
