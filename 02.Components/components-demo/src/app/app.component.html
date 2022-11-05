@@ -1,8 +1,31 @@
-<p id="title">App Component</p>
+<p id="title">{{ title }}</p>
+<!-- 
+    Binding types:
+    1. From data-source to view(Interpolation) -> from the component 
+      - {{ expression }}
+      - [target]="expression"
+      - bind-target="expression"
+    2. From view to data-source(event) -> 
+      - (target)="statement"
+      - on-target="statement"
+    3. Two way(data binding) -> 
+      - [(ngModel)]="expression"
+      - bindon-target="expression"
+ -->
+
+<!-- 
+    const titleInput = document.createElement('input');
+    const btn = document.createElement('button');
+    btn.addEventListener('click', ($event) => {
+        changeTitleHandler(titleInput.value);
+    })
+ -->
+<input #titleInput type="text" />
+<!-- the # gives a refrence to the element -->
+<button (click)="changeTitleHandler(titleInput.value)">Change title</button>
 <app-list></app-list>
 
 
-<!-- When new component is created -->
 <!-- const elements = new Map() -->
 <!-- const ctor = currentModule.get('app-list') -->
 
