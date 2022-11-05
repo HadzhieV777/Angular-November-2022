@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { IUser } from '../interfaces';
+import { ICustomEvent } from '../list-item/list-item.component';
 
 @Component({
   selector: 'app-list',
@@ -7,16 +9,18 @@ import { Component } from '@angular/core';
 })
 export class ListComponent {
   // myProp = 'Hello World!';
-  users = [
+  users: IUser[] = [
     {
-      firstName: "Pesho",
-      lastName: 'Peshev'
+      firstName: 'Pesho',
+      lastName: 'Peshev',
     },
     {
-      firstName: "Gosho",
-      lastName: 'Goshev'
-    }
+      firstName: 'Gosho',
+      lastName: 'Goshev',
+    },
   ];
+
+  selectedUserIndex: null | number = null;
 
   showLastName = false;
 
@@ -26,7 +30,23 @@ export class ListComponent {
     // }, 1000);
   }
 
+  get showSelectedIndex(): boolean {
+    return (this.selectedUserIndex === null ? -1 : this.selectedUserIndex) >= 0;
+  }
+
   handleClickEvent() {
     this.showLastName = !this.showLastName;
+  }
+
+  listItemClickHandler(index: number) {
+    if (this.selectedUserIndex === index) {
+      this.selectedUserIndex =null;
+      return;
+    }
+    this.selectedUserIndex = index;
+  };
+
+  customEventHandler($event: ICustomEvent) {
+    console.log($event);
   }
 }
