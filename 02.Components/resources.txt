@@ -17,6 +17,9 @@ https://angular.io/api/core/EventEmitter
  --- Intro to modules ---
 https://angular.io/guide/architecture-modules
 
+ --- JavaScript Event Propagation ---
+ https://www.tutorialrepublic.com/javascript-tutorial/javascript-event-propagation.php
+ 
  --- Schematics ---
 https://angular.io/guide/schematics
 
