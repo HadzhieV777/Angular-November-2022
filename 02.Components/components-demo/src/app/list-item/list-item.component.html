@@ -1,1 +1,4 @@
-<p>list-item works!</p>
+<ng-container>{{ user.firstName }}</ng-container>
+<ng-container *ngIf="showLastName"> {{ user.lastName }}</ng-container>
+
+<button (click)="selectClickHandler($event)">Select</button>
