@@ -1,6 +1,6 @@
 # ComponentsDemo
 
-#####Components are the main building block for Angular applications. Each component consists of:
+##### Components are the main building block for Angular applications. Each component consists of:
 
     - An HTML template that declares what renders on the page
     - A TypeScript class that defines behavior
