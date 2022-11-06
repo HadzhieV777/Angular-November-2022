@@ -27,9 +27,7 @@ export class ListItemComponent {
   }
 
   ngOnInit() {
-    this.intervalId = setInterval(() => {
-
-    }, 5000) as unknown as number;
+    this.intervalId = setInterval(() => {}, 5000) as unknown as number;
   }
 
   selectClickHandler($event: MouseEvent) {
