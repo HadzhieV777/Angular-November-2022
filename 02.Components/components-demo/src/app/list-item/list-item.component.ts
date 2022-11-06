@@ -15,12 +15,21 @@ export class ListItemComponent {
 
   @Output() customEvent = new EventEmitter<ICustomEvent>();
 
+  intervalId: number | undefined;
+
   constructor() {
     console.log(this.user);
   }
 
+  ngOnDestroy(): void {
+    // Preventing memory leaks by cleaning after
+    clearInterval(this.intervalId);
+  }
+
   ngOnInit() {
-    console.log(this.user)
+    this.intervalId = setInterval(() => {
+
+    }, 5000) as unknown as number;
   }
 
   selectClickHandler($event: MouseEvent) {
