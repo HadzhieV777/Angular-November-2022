@@ -39,3 +39,5 @@ const data = [
       'http://www.stat.columbia.edu/~gelman/teaching/literacy/images/IV.gif',
   },
 ];
+
+export { data };
