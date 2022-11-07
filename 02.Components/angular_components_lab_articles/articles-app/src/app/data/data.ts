@@ -2,7 +2,9 @@ import { Article } from '../models/article.model';
 import { data } from './seed';
 
 export class ArticleData {
+  // add getData() method
   getData(): Article[] {
+    // Instantitate data
     let articles: Article[] = [];
 
     for (let i = 0; i < data.length; i++) {
