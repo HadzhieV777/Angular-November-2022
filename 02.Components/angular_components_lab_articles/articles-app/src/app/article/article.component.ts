@@ -11,8 +11,8 @@ export class ArticleComponent {
 
   // using @Input decorator bcs
   // article and aricleDesc will come from above in the articles component
-  @Input() article: Article;
-  @Input() articleDesc: string;
+  @Input() article!: Article;
+  @Input() articleDesc!: string;
   descToShow: string;
 
   // articleDescLen is a counter which controls how many symbols to show
@@ -34,10 +34,22 @@ export class ArticleComponent {
       this.showHideBtn = true;
       this.showReadMoreBtn = false;
     } else {
-      this.descToShow = this.articleDesc.substring(0, this.articleDesc)
+      this.descToShow = this.articleDesc.substring(0, this.articleDescLen);
     }
   }
 
+  toggleImage(): void {
+    this.imageIsShown = !this.imageIsShown;
+    this.imageButtonTitle =
+      this.imageButtonTitle === 'Show Image' ? 'Hide Image' : 'Show Image';
+  }
+
+  hideDesc() : void {
+    this.descToShow = "";
+    this.articleDescLen = 0;
+    this.showHideBtn = false;
+    this.showReadMoreBtn = true;
+  }
 }
 
 // ng g c component-name
