@@ -1,0 +1,73 @@
+ --- Dependency Injection ---
+ https://angular.io/guide/dependency-injection
+ 
+ --- Services and DI ---
+ https://angular.io/guide/architecture-services
+ https://www.w3schools.com/angular/angular_services.asp
+ 
+ --- Change Detection ---
+ https://blog.angular-university.io/how-does-angular-2-change-detection-really-work/
+ 
+ --- @Injectable ---
+ https://angular.io/api/core/Injectable
+ 
+ --- Providers ---
+ https://www.tektutorialshub.com/angular/angular-providers/
+ 
+ --- HttpClientModule ---
+ https://angular.io/api/common/http/HttpClientModule
+ 
+ --- Tree shaking ---
+ https://medium.com/@sybrenbolandit/angular-6-tree-shaking-5cee618a7f87
+ https://www.angular.love/en/2020/12/21/angular-tree-shaking-2/
+ https://stackoverflow.com/questions/60321224/angular-tree-shaking-how-exactly-does-it-work
+ 
+ --- Zone.js --- 
+ https://medium.com/swlh/what-is-zone-js-and-how-can-i-use-it-63ce08a55962
+ https://javascript.plainenglish.io/what-is-zone-why-zone-8534350480dd
+ 
+ --- RxJs ---
+ https://rxjs.dev/
+ https://www.geeksforgeeks.org/rxjs-beginners-guide/
+ https://www.tutorialspoint.com/rxjs/rxjs_overview.htm
+ 
+ --- RxJs Obsevables ---
+ https://www.tutorialspoint.com/rxjs/rxjs_observables.htm
+ https://rxjs.dev/guide/observable
+ 
+ --- RxJs Pipe ---
+ https://rxjs.dev/api/index/function/pipe
+ 
+ --- RxJs Operators ---
+ https://rxjs.dev/guide/operators
+ https://johnlindquist.com/rxjs-pipes/
+ 
+ --- RxJs Multicasting ---
+ https://www.learnrxjs.io/learn-rxjs/operators/multicasting
+ 
+ --- JS Promises --- 
+ https://www.w3schools.com/Js/js_promise.asp
+ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+ 
+ --- Node.js Streams ---
+ https://www.geeksforgeeks.org/node-js-streams/
+ https://nodejs.org/api/stream.html
+ 
+ --- Iterator pattern ---
+ https://www.dofactory.com/javascript/design-patterns/iterator
+ 
+ --- Observer pattern ---
+ https://www.dofactory.com/javascript/design-patterns/observer
+ 
+ --- Pub/Sub pattern ---
+ https://jsmanifest.com/the-publish-subscribe-pattern-in-javascript/
+ https://rahuulmiishra.medium.com/understanding-pub-sub-design-pattern-in-javascript-29a7bef28c24
+ 
+ --- More ---
+ https://en.wikipedia.org/wiki/Monad_(functional_programming)
+ https://dev.to/this-is-learning/how-react-isn-t-reactive-and-why-you-shouldn-t-care-152m
+ 
+ --- Fake API ---
+ https://jsonplaceholder.typicode.com/
+ 
+ 
