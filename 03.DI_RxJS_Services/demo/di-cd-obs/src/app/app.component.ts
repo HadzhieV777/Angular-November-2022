@@ -1,5 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { MyClass } from './app.module';
+import { MyClass, myCustomToken } from './app.module';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +15,9 @@ export class AppComponent {
   // @Inject is Parameter decorator on a dependency parameter of a class constructor that specifies a custom provider of the dependency.
   constructor(
     // @Inject('Test') test: string
-    test: MyClass
+    @Inject(myCustomToken) test: string;
+    // @Inject(MyClass) test: MyClass =>  
+    // test: MyClass
   ) {
     console.log(test);
     // setInterval must contain arrow function, otherwise we will lose the context
