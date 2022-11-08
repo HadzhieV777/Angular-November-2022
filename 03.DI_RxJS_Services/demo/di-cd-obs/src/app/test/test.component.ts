@@ -53,6 +53,6 @@ class Person {
   }
 }
 
-const w = new Wallet(200, 'test');
-const p = new Person(w);
+// const w = new Wallet(200, 'test');
+// const p = new Person(w);
 
