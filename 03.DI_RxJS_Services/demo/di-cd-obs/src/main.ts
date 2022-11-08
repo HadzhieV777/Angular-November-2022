@@ -10,3 +10,6 @@ if (environment.production) {
 
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
+
+
+// Monkey Patching is a technique to change or modify the default behaviour of code at runtime when you don’t have access to the original code.
