@@ -12,6 +12,7 @@ import { TestComponent } from './test/test.component';
   imports: [
     BrowserModule
   ],
+  // Inject the dependencies here
   providers: [],
   bootstrap: [AppComponent]
 })
