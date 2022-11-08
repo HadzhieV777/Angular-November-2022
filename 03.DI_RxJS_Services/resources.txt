@@ -49,6 +49,9 @@
  https://www.w3schools.com/Js/js_promise.asp
  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
  
+ --- JS Symbol ---
+ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol
+ 
  --- Node.js Streams ---
  https://www.geeksforgeeks.org/node-js-streams/
  https://nodejs.org/api/stream.html
