@@ -39,3 +39,7 @@ getValue()
 
 // The difference between array and promise is that in the promise the stored value is uknown when the promise is created
 // and the value can be mutated when returned
+
+[1]
+  .map(function (x) {return x + 1})
+  .map(function (x) {return x * 1})
