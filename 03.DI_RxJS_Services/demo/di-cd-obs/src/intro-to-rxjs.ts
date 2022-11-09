@@ -1,3 +1,5 @@
+import { Observable } from 'rxjs';
+
 // "Producing code" is code that can take some time
 // "Consuming code" is code that must wait for the result
 // A Promise is a JavaScript object that links producing code and consuming code
@@ -41,5 +43,33 @@ getValue()
 // and the value can be mutated when returned
 
 [1]
-  .map(function (x) {return x + 1})
-  .map(function (x) {return x * 1})
+  .map(function (x) {
+    return x + 1;
+  })
+  .map(function (x) {
+    return x * 1;
+  });
+
+Promise.resolve(1)
+  .then(function (value) {
+    console.log(value);
+  })
+  .then()
+  .then();
+
+[1, 2, 3]
+  .map(function (x) {
+    return x + 1;
+  })
+  .map(function (x) {
+    return x * 1;
+  });
+
+const o = new Observable((observer) => {
+  observer.next(100);
+  observer.next(200);
+  observer.next(300);
+  observer.complete();
+});
+
+// Observables are like promise but can store multiple values
