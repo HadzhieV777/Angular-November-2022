@@ -9,7 +9,7 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { AppComponent } from '../app.component';
-import { myCustomToken } from '../app.module';
+import { MyClass, myCustomToken } from '../app.module';
 
 // The service has lifecycle hooks inside
 // ngOnDestroy is the only one lifecycle hook that is inside the service
@@ -73,20 +73,32 @@ const injector = {
   },
 };
 
-// Simple dependency injection
-// class Wallet {
-//   constructor(private amount: number, private test: string) {}
-// }
+type Injector = typeof injector;
 
-// class Person {
-//   constructor(private wallet: Wallet) {
-//     // this.wallet = new Wallet(200);
-//     // Wrong bcs we interrupt the Dependency Inversion pattern
-//   }
-// }
+const amount = Symbol('Amount');
 
-// const w = new Wallet(200, 'test');
-// const p = new Person(w);
+class Wallet {
+  private amount: number;
+  constructor(injector: Injector) {
+    this.amount = injector.get(amount, 0);
+  }
+}
+
+class Person {
+  wallet: Wallet;
+  constructor(injector: Injector) {
+    this.wallet = injector.get(Wallet);
+    
+    // this.wallet = new Wallet(200);
+    // Wrong bcs we interrupt the Dependency Inversion pattern
+  }
+}
+
+injector.provide(Wallet, Wallet);
+injector.provide(amount, 200);
+
+const w = new Wallet(injector);
+const p = new Person(injector);
 
 // In AngularJS, a service is a function, or object, that is available for, and limited to, your AngularJS application.
 // AngularJS has about 30 built-in services. One of them is the $location service.
