@@ -65,6 +65,7 @@ Promise.resolve(1)
     return x * 1;
   });
 
+// Observables are like promise but can store multiple values
 const o = new Observable((observer) => {
   observer.next(100);
   observer.next(200);
@@ -72,4 +73,4 @@ const o = new Observable((observer) => {
   observer.complete();
 });
 
-// Observables are like promise but can store multiple values
+o.subscribe(); // subscribe is like the last then in promise
