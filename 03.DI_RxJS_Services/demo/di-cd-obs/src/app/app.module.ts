@@ -6,7 +6,16 @@ import { TestComponent } from './test/test.component';
 
 // @Injectables gives an opurtunity to a class to inject dependencies
 //  and the class will be able to use inject mechanism
-@Injectable()
+@Injectable({ 
+  providedIn: 'root' // Tree shakable provider
+  // By default, this syntax registers it to the root 
+  // injector which will make our service an application wide singleton
+})
+
+// Tree shaking is a step in a build process that 
+// removes unused code so the application becomes smaller. 
+
+
 export class MyClass {
   constructor() {
     console.log('Nameless class was constructed!');
