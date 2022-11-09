@@ -31,7 +31,7 @@ export class TestComponent implements OnInit, OnChanges {
     // A detached view is not checked until it is reattached.
     // Use in combination with detectChanges() to implement local change detection checks.
     this.cdRef.detach();
-    const value = this.injector.get(myCustomToken);
+    const value = this.injector.get(myCustomToken, null); // if the value of myCustomToken is unavailable, te value will be null 
 
     // AppComponent is accessible bcs it was created up on the tree
     const appCmp = this.injector.get(AppComponent);
