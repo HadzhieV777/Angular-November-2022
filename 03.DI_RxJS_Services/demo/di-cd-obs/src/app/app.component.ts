@@ -6,6 +6,8 @@ import { MyClass, myCustomToken } from './app.module';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
+
+
 export class AppComponent {
   title = 'di-cd-obs';
   // counter = 0;
@@ -15,7 +17,7 @@ export class AppComponent {
   // @Inject is Parameter decorator on a dependency parameter of a class constructor that specifies a custom provider of the dependency.
   constructor(
     // @Inject('Test') test: string
-    @Inject(myCustomToken) test: string;
+    @Inject(myCustomToken) test: string,
     // @Inject(MyClass) test: MyClass =>  
     // test: MyClass
   ) {
