@@ -31,7 +31,7 @@ export class TestComponent implements OnInit, OnChanges {
     // A detached view is not checked until it is reattached.
     // Use in combination with detectChanges() to implement local change detection checks.
     this.cdRef.detach();
-    const value = this.injector.get(myCustomToken, null); // if the value of myCustomToken is unavailable, te value will be null 
+    const value = this.injector.get(myCustomToken, null); // if the value of myCustomToken is unavailable, te value will be null
 
     // AppComponent is accessible bcs it was created up on the tree
     const appCmp = this.injector.get(AppComponent);
@@ -54,21 +54,39 @@ export class TestComponent implements OnInit, OnChanges {
   // ngOnDestroy() allow us to clean some props from the component before it's destruction
 }
 
-// Simple dependency injection
-class Wallet {
-  constructor(private amount: number, private test: string) {}
-}
+const injector = {
+  collection: new Map(),
 
-class Person {
-  constructor(private wallet: Wallet) {
-    // this.wallet = new Wallet(200);
-    // Wrong bcs we interrupt the Dependency Inversion pattern
-  }
-}
+  provide(key: any, value: any) {
+    this.collection.set(key, value);
+  },
+
+  get(key: any, defaultValue?: any): any {
+    const result = this.collection.get(key);
+    if (!result) {
+      if (defaultValue) {
+        return defaultValue;
+      }
+      throw new Error('Value not found in injector!');
+    }
+    return result;
+  },
+};
+
+// Simple dependency injection
+// class Wallet {
+//   constructor(private amount: number, private test: string) {}
+// }
+
+// class Person {
+//   constructor(private wallet: Wallet) {
+//     // this.wallet = new Wallet(200);
+//     // Wrong bcs we interrupt the Dependency Inversion pattern
+//   }
+// }
 
 // const w = new Wallet(200, 'test');
 // const p = new Person(w);
-
 
 // In AngularJS, a service is a function, or object, that is available for, and limited to, your AngularJS application.
 // AngularJS has about 30 built-in services. One of them is the $location service.
