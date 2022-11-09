@@ -97,8 +97,7 @@ const injector = {
       this.instances.set(provider.provide, instance);
       return instance;
     }
-
-    // return result;
+    // TODO add other cases for useExisting and useFactory;
   },
 };
 
