@@ -1,6 +1,7 @@
 import { Injectable, InjectionToken, NgModule, Provider } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+//  "Import *" is anti pattern, because we import useless modules
 import { AppComponent } from './app.component';
 import { TestComponent } from './test/test.component';
 
@@ -28,20 +29,20 @@ export class MyClass {
 // Symbols are often used to add unique property keys to an object
 export const myCustomToken = new InjectionToken('Test');
 
-const myProvider: Provider = {
-  // useValue: 123,
-  useClass: MyClass,
-  provide: myCustomToken,
-  // provide: MyClass, // key of the provider
-};
+// const myProvider: Provider = {
+//   // useValue: 123,
+//   useClass: MyClass,
+//   provide: myCustomToken,
+//   // provide: MyClass, // key of the provider
+// };
 
 @NgModule({
   declarations: [AppComponent, TestComponent],
   imports: [BrowserModule],
   // Inject the dependencies in proviers
   providers: [
-    myProvider,
-    MyClass, // => { useClass: MyClass, provide: MyClass }
+    // myProvider,
+    // MyClass, // => { useClass: MyClass, provide: MyClass }
   ],
   bootstrap: [AppComponent],
 })
