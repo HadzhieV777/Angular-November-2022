@@ -1,9 +1,12 @@
-import { InjectionToken, NgModule, Provider } from '@angular/core';
+import { Injectable, InjectionToken, NgModule, Provider } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { TestComponent } from './test/test.component';
 
+// @Injectables gives an opurtunity to a class to inject dependencies
+//  and the class will be able to use inject mechanism
+@Injectable()
 export class MyClass {
   constructor() {
     console.log('Nameless class was constructed!');
@@ -28,7 +31,7 @@ const myProvider: Provider = {
   imports: [BrowserModule],
   // Inject the dependencies in proviers
   providers: [
-    // myProvider
+    myProvider,
     MyClass, // => { useClass: MyClass, provide: MyClass }
   ],
   bootstrap: [AppComponent],
