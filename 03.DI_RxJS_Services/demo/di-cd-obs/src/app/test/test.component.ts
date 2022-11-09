@@ -54,22 +54,51 @@ export class TestComponent implements OnInit, OnChanges {
   // ngOnDestroy() allow us to clean some props from the component before it's destruction
 }
 
+interface ClassProvider {
+  provide: any;
+  useClass: any;
+}
+
+interface ValueProvider {
+  provide: any;
+  useValue: any;
+}
+
+type Provider = ClassProvider | ValueProvider;
+
+// The injector will take care of creating new stuff
 const injector = {
   collection: new Map(),
+  instances: new Map(),
 
-  provide(key: any, value: any) {
-    this.collection.set(key, value);
+  provide(provider: Provider) {
+    this.collection.set(provider.provide, provider);
   },
 
   get(key: any, defaultValue?: any): any {
-    const result = this.collection.get(key);
-    if (!result) {
+    const provider = this.collection.get(key) as Provider;
+    if (!provider) {
       if (defaultValue) {
         return defaultValue;
       }
       throw new Error('Value not found in injector!');
     }
-    return result;
+    if ((provider as ValueProvider).useValue) {
+      return (provider as ValueProvider).useValue;
+    }
+
+    if ((provider as ClassProvider).useClass) {
+      let instance = this.instances.get(provider.provide);
+
+      if (instance) {
+        return instance;
+      }
+      instance = new (provider as ClassProvider).useClass();
+      this.instances.set(provider.provide, instance);
+      return instance;
+    }
+
+    // return result;
   },
 };
 
@@ -88,7 +117,7 @@ class Person {
   wallet: Wallet;
   constructor(injector: Injector) {
     this.wallet = injector.get(Wallet);
-    
+
     // this.wallet = new Wallet(200);
     // Wrong bcs we interrupt the Dependency Inversion pattern
   }
