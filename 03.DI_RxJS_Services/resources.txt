@@ -26,12 +26,19 @@
  https://medium.com/swlh/what-is-zone-js-and-how-can-i-use-it-63ce08a55962
  https://javascript.plainenglish.io/what-is-zone-why-zone-8534350480dd
  
+ --- RxJs Crash courses ---
+ https://www.youtube.com/watch?v=65Us8NwmYf4
+ https://www.youtube.com/watch?v=V4iMyVnQPqM
+ https://www.youtube.com/watch?v=ei7FsoXKPl0
+ https://www.youtube.com/watch?v=tGWBy6Vqq9w
+  
  --- RxJs ---
  https://rxjs.dev/
  https://www.geeksforgeeks.org/rxjs-beginners-guide/
  https://www.tutorialspoint.com/rxjs/rxjs_overview.htm
  
  --- RxJs Obsevables ---
+ https://blog.logrocket.com/understanding-rxjs-observables/
  https://www.tutorialspoint.com/rxjs/rxjs_observables.htm
  https://rxjs.dev/guide/observable
  
