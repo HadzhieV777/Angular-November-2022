@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs';
+import { Observable, map, subscribeOn } from 'rxjs';
 
 // "Producing code" is code that can take some time
 // "Consuming code" is code that must wait for the result
@@ -65,12 +65,65 @@ Promise.resolve(1)
     return x * 1;
   });
 
-// Observables are like promise but can store multiple values
-const o = new Observable((observer) => {
-  observer.next(100);
-  observer.next(200);
-  observer.next(300);
-  observer.complete();
-});
+// Observer is an object with callback functions, that will get called when there is
+// interaction to the Observable, i.e., the source has interacted for an example button click, Http request, etc.
 
-o.subscribe(); // subscribe is like the last then in promise
+function interval(intervalValue: number = 0) {
+  // Observables are like promise but can store multiple values
+  // An observable is a function that creates an observer and attaches it to the source
+  // where values are expected from, for example, clicks, mouse events from a dom element or an Http request, etc.
+  return new Observable<number>((observer) => {
+    let counter = 0;
+    const timerId = setInterval(() => {
+      observer.error(new Error('This is observer error.'));
+      observer.next(counter++);
+      observer.complete();
+    }, intervalValue);
+
+    return () => {
+      clearInterval(timerId);
+    };
+  });
+}
+
+// Pipe Returns an Observable
+// o.pipe(map(x=> x + 1).subscribe(console.log))
+
+// The pipe method will sit in-between the Observable and the Observer
+// allowing us to operate on what happens between the beginning and the end:
+
+// To create a pipe method, we need to pass the Observable itself 
+// (AKA this in JavaScript) down through the pipe so it has access to the internals
+
+// An operator is a function you pass into a pipe. And pipe returns its own observable. That means:
+// An operator has the original observable as the first argument
+// An operator returns an observable
+
+const stream$ = interval(5000).pipe(
+  map((x) => x + 1),
+  map((x) => x + 1),
+  map((x) => x + 1)
+);
+
+// Observables has lazy evaluation
+
+setTimeout(() => {
+  const sub = stream$.subscribe({
+    next: (x) => console.log(x),
+    error: (err) => console.log(err),
+    complete: () => console.log('Observable completed!'),
+  });
+
+  setTimeout(() => {
+    sub.unsubscribe(); // clear
+  }, 1000);
+}, 3000);
+// o.subscribe(console.log); // subscribe is like the last then in promise
+
+// An observable gets executed when it is subscribed. 
+// An observer is an object with three methods that are notified,
+//  - next() − This method will send values like a number, string, object etc.
+//  - complete() − This method will not send any value and indicates the observable as completed.
+//  - error() − This method will send the error if any.
+
+
