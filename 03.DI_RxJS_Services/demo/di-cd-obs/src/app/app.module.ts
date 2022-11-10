@@ -1,22 +1,23 @@
 import { Injectable, InjectionToken, NgModule, Provider } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 //  "Import *" is anti pattern, because we import useless modules
 import { AppComponent } from './app.component';
-import { TestComponent } from './test/test.component';
+import { UserListComponent } from './user-list/user-list.component';
+// import { UserService } from './user.service';
+// import { TestComponent } from './test/test.component';
 
 // @Injectables gives an opurtunity to a class to inject dependencies
 //  and the class will be able to use inject mechanism
-@Injectable({ 
-  providedIn: 'root' // Tree shakable provider
-  // By default, this syntax registers it to the root 
+@Injectable({
+  providedIn: 'root', // Tree shakable provider
+  // By default, this syntax registers it to the root
   // injector which will make our service an application wide singleton
 })
 
-// Tree shaking is a step in a build process that 
-// removes unused code so the application becomes smaller. 
-
-
+// Tree shaking is a step in a build process that
+// removes unused code so the application becomes smaller.
 export class MyClass {
   constructor() {
     console.log('Nameless class was constructed!');
@@ -37,10 +38,19 @@ export const myCustomToken = new InjectionToken('Test');
 // };
 
 @NgModule({
-  declarations: [AppComponent, TestComponent],
-  imports: [BrowserModule],
+  declarations: [
+    AppComponent,
+    UserListComponent,
+    // TestComponent
+  ],
+  imports: [
+    BrowserModule, 
+    HttpClientModule
+  ],
   // Inject the dependencies in proviers
   providers: [
+
+    // UserService,
     // myProvider,
     // MyClass, // => { useClass: MyClass, provide: MyClass }
   ],
