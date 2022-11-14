@@ -1,2 +1,5 @@
  --- Angular coding style guide ---
  https://angular.io/guide/styleguide
+ 
+ --- Populate Nodejs ---
+ https://dev.to/paras594/how-to-use-populate-in-mongoose-node-js-mo0
