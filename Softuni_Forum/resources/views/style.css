@@ -1,4 +1,4 @@
-@import url('reset.css');
+/* @import url('reset.css');
 @import url('layout.css');
 @import url('typography.css');
 @import url('responsive.css');
@@ -35,11 +35,11 @@ button {
 
 button:hover {
     cursor: pointer;
-}
+} */
 
 /* header  */
 
-header {
+/* header {
     background: rgb(0, 128, 182);
     background: linear-gradient(0deg, rgba(0, 128, 182, 1) 0%, rgba(0, 128, 182, 1) 35%, rgba(0, 212, 255, 1) 100%);
 }
@@ -99,11 +99,11 @@ nav {
     align-items: center;
     width: 75%;
     margin: auto;
-}
+} */
 
 /* mini-navbar */
 
-.mini-navbar ul {
+/* .mini-navbar ul {
     background-color: #6ba1b8;
     border-radius: 5px;
 }
@@ -111,17 +111,17 @@ nav {
 .mini-navbar ul li+li {
     border-left: 1px solid lightgrey;
     padding-left: .5em;
-}
+} */
 
 /* main  */
 
-main {
+/* main {
     width: 50%;
-}
+} */
 
 /* theme list item */
 
-.theme-container a {
+/* .theme-container a {
     text-decoration: none;
     color: inherit;
 }
@@ -184,11 +184,11 @@ main {
 
 time {
     font-weight: bold;
-}
+} */
 
 /* aside  */
 
-aside {
+/* aside {
     width: 29%;
     margin-top: 1em;
     font-size: 0.8em;
@@ -234,11 +234,11 @@ aside {
 .aside-theme a {
     text-decoration: none;
     color: inherit;
-}
+} */
 
 /* footer  */
 
-footer {
+/* footer {
     background: rgb(0, 212, 255);
     ;
     margin-top: 1em;
@@ -257,4 +257,4 @@ footer p {
 
 footer span {
     font-size: 1.5em;
-}
+} */
