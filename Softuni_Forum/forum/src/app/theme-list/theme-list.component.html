@@ -1,20 +1,30 @@
+<div *ngIf="errorFetcingData">Error loading posts</div>
+<app-loader *ngIf="!themeList"></app-loader>
+
 <!-- theme component  -->
-<div class="theme-container">
+<div *ngFor="let theme of themeList; let i = index" class="theme-container">
   <div class="theme-name-wrapper">
     <div class="theme-name">
       <a href="#" class="normal">
-        <h2>Angular 10</h2>
+        <!-- <h2>{{i+1}}. {{ theme.themeName }}</h2> -->
+        <h2>{{ theme.themeName }}</h2>
       </a>
       <div class="columns">
         <div>
-          <p>Date: <time>2020-10-10T12:08:28.451Z</time></p>
+          <p>
+            Date: <time>{{ theme.created_at }}</time>
+          </p>
           <div class="nick-name">
-            <p>Username: <span>David</span></p>
+            <p>
+              Username: <span>{{ theme.userId.username }}</span>
+            </p>
           </div>
         </div>
         <div class="subscribers">
           <!-- <button class="subscribe">Subscribe</button> -->
-          <p>Subscribers: <span>456</span></p>
+          <p>
+            Subscribers: <span>{{ theme.subscribers.length }}</span>
+          </p>
         </div>
       </div>
     </div>
