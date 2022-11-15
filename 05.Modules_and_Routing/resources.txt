@@ -12,6 +12,7 @@ https://angular.io/guide/schematics
 https://v7.material.angular.io/
 https://material.angular.io/
 
- --- ---
+ --- Http Interceptor ---
+ https://angular.io/api/common/http/HttpInterceptor
  
  --- ---
