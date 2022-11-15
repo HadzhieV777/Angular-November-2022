@@ -24,3 +24,5 @@ https://material.angular.io/
  --- Singleton design pattern ---
  https://betterprogramming.pub/what-is-a-singleton-2dc38ca08e92
  https://www.digitalocean.com/community/tutorials/js-js-singletons
+ https://www.dofactory.com/javascript/design-patterns/singleton
+ https://bretcameron.medium.com/singletons-in-javascript-59655927b7d7
