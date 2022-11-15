@@ -18,3 +18,4 @@ https://material.angular.io/
  
  --- Route Gurards ---
  https://www.c-sharpcorner.com/article/angular-route-guard/
+ https://www.digitalocean.com/community/tutorials/angular-route-guards
