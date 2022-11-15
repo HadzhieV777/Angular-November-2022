@@ -20,3 +20,6 @@ https://material.angular.io/
  https://www.c-sharpcorner.com/article/angular-route-guard/
  https://www.digitalocean.com/community/tutorials/angular-route-guards
  https://appdividend.com/2020/07/09/angular-route-guard-example-guard-in-angular/
+ 
+ --- Singleton design pattern ---
+ https://betterprogramming.pub/what-is-a-singleton-2dc38ca08e92
