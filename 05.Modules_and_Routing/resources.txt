@@ -7,3 +7,6 @@ https://www.simplilearn.com/tutorials/angular-tutorial/angular-routing
 
 --- Angular Schematics ---
 https://angular.io/guide/schematics
+
+--- Angular Material ---
+https://v7.material.angular.io/
