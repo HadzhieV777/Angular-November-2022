@@ -1,1 +1,4 @@
-<p>global-loader works!</p>
+<div id="global-loader-container" *ngIf="globalLoaderService.title">
+  <div id="title">{{ globalLoaderService.title }}</div>
+  <app-spinner></app-spinner>
+</div>
