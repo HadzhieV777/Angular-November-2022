@@ -1,3 +1,9 @@
+ --- Angular modules ---
+https://angular.io/guide/ngmodules
+
+ --- Launching your app with a root module ---
+ https://angular.io/guide/bootstrapping
+
  --- Angular Routing ---
 https://angular.io/guide/routing-overview
 https://angular.io/guide/router
@@ -7,6 +13,12 @@ https://www.simplilearn.com/tutorials/angular-tutorial/angular-routing
 
  --- Angular Schematics ---
 https://angular.io/guide/schematics
+
+ --- Angular Pipes ---
+https://angular.io/guide/pipes
+
+ --- Attribute directives ---
+https://angular.io/guide/attribute-directives
 
  --- Angular Material ---
 https://v7.material.angular.io/
