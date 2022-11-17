@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class GlobalLoaderService {
-  title: string | null = 'Hello';
+  title: string | null = null;
 
   showLoader(title: string): void {
     this.title = title;
