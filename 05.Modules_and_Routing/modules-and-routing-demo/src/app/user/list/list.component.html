@@ -1,1 +1,7 @@
-<p>list works!</p>
+<button (click)="reloadUsersHandler()">Reload Users</button>
+
+<div id="user-list-container">
+  <div *ngFor="let user of userList">
+    {{ user.username }}
+  </div>
+</div>
