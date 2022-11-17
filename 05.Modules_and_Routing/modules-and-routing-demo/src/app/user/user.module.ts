@@ -1,15 +1,15 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ListComponent } from './list/list.component';
+import { UserListComponent } from './list/list.component';
 import { Test } from '../test';
 
 @NgModule({
-  declarations: [ListComponent],
+  declarations: [UserListComponent],
   imports: [CommonModule],
   // providers: [
   //   Test, // { provide: Test, useClass: Test }
   // ],
-  exports: [ListComponent],
+  exports: [UserListComponent],
 })
 export class UserModule {
   // forRoot stays in the highest lvl, will provide all the data
