@@ -11,6 +11,9 @@ https://www.w3schools.com/angular/angular_routing.asp
 https://www.javatpoint.com/angular-routing
 https://www.simplilearn.com/tutorials/angular-tutorial/angular-routing
 
+ --- Angular Router ---
+ https://angular.io/api/router/Router
+ 
  --- Angular Schematics ---
 https://angular.io/guide/schematics
 
