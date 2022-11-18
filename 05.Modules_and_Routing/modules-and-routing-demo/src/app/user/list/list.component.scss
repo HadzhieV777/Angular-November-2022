@@ -1,0 +1,28 @@
+.user-list-section {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.reload-btn {
+    align-self: center;
+    padding: 1rem;
+    background-color: bisque;
+    color: rebeccapurple;
+    font-size: 1rem;
+    border: 1px solid bisque;
+    border-radius: 1rem;
+
+    &:hover {
+        border: 1px solid darkmagenta;
+        color: darkmagenta;
+    }
+}
+
+#user-list-container{
+    list-style: none;
+
+    & li {
+        padding: .2rem;
+    }
+}
