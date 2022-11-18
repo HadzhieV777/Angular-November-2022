@@ -1,1 +1,7 @@
-<p>navigation works!</p>
+<div class="navigation">
+    <a [routerLink]="['/user/list']">User List</a>
+    <a routerLink="/post-list">Post List</a>
+    <!-- routerLink is directive it takes router service and calls .navigate()-->
+    <!-- <div (click)="navigate('/user-list')">User List</div>
+    <div (click)="navigate('/post-list')">Post List</div> -->
+</div>
