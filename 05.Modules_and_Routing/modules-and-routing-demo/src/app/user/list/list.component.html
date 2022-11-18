@@ -1,7 +1,11 @@
-<button (click)="reloadUsersHandler()">Reload Users</button>
+<div class="user-list-section">
+  <button class="reload-btn" (click)="reloadUsersHandler()">
+    Reload Users
+  </button>
 
-<div id="user-list-container">
-  <div *ngFor="let user of userList">
-    {{ user.username }}
-  </div>
+  <ul id="user-list-container">
+    <li *ngFor="let user of userList" [routerLink]="['/user', 'detail', user.id]">
+      {{ user.username }}
+    </li>
+  </ul>
 </div>
