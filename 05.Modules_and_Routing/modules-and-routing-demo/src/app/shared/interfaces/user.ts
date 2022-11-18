@@ -1,6 +1,7 @@
 // Differences between interface and type
 
 export interface IUser {
+  id: number;
   username: string;
 }
 
