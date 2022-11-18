@@ -13,6 +13,9 @@ https://www.simplilearn.com/tutorials/angular-tutorial/angular-routing
 
  --- Angular Router ---
  https://angular.io/api/router/Router
+
+ --- Angular Router-Outlet ---
+https://www.c-sharpcorner.com/blogs/routeroutlet-in-angular
  
  --- Angular Schematics ---
 https://angular.io/guide/schematics
@@ -30,6 +33,9 @@ https://material.angular.io/
  --- Http Interceptors ---
  https://angular.io/api/common/http/HttpInterceptor
  https://medium.com/@er.surajnegi/what-are-angular-http-interceptors-and-how-to-create-them-82d1d6159c4e
+ 
+ --- Angular Resolvers ---
+https://codeburst.io/understanding-resolvers-in-angular-736e9db71267
  
  --- Route Gurards ---
  https://www.c-sharpcorner.com/article/angular-route-guard/
