@@ -1,0 +1,94 @@
+$clr-red: red;
+
+
+.new-theme-border {
+    border: 1px solid;
+    border-radius: 1em;
+    width: 80%;
+    margin: auto;
+    margin-top: 2em;
+    padding: 1em;
+
+    & .input {
+        margin-bottom: 1em;
+    }
+}
+
+
+.header-background {
+    $clr-blue-bg: #4ebced;
+    $clr-white: #fff;
+
+    background-color: $clr-blue-bg;
+    border: 1px solid $clr-blue-bg;
+    padding: 1.5em;
+    padding-bottom: 0;
+    margin-bottom: 1em;
+    border-top-right-radius: 1em;
+    border-top-left-radius: 1em;
+
+    & span {
+        background-color: $clr-white;
+        padding: 0.5em;
+        margin-top: 1em;
+        border-radius: 0.3em;
+    }
+}
+
+
+.new-theme-content {
+    min-height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+
+    & textarea {
+        width: 100%;
+        padding: 0.5em;
+        margin: 0;
+    }
+
+    & label {
+        margin-bottom: 0.3em;
+    }
+}
+
+.title,
+.new-theme-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.new-theme-title input {
+    width: 55%;
+    border-radius: 0.3em;
+    padding: 0.35em;
+}
+
+button+button {
+    margin-left: 1rem;
+}
+
+.new-theme-buttons {
+    $border-style: 1px solid #333333;
+
+    margin-top: 1em;
+    text-align: center;
+
+    & button {
+        padding: 0.4em 1.5em;
+        border: $border-style;
+        border-radius: 0.3em;
+    }
+}
+
+p.error {
+    text-align: left;
+    border-radius: 0.3em;
+    color: $clr-red;
+    padding-top: 0;
+}
+
+.input-error {
+    border-left-color: $clr-red;
+}
