@@ -80,3 +80,16 @@ nav {
 
 
 }
+
+.btn:hover {
+    color: $clr-gray-light;
+}
+
+#logout {
+    color: $clr-white;
+}
+
+#logout:hover {
+    cursor: pointer;
+    color: $clr-gray-light;
+}
