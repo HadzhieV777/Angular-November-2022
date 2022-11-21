@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ThemeListComponent } from './theme-list/theme-list.component';
 import { NewThemeComponent } from './new-theme/new-theme.component';
 import { SingleThemeComponent } from './single-theme/single-theme.component';
+import { AuthActivate } from '../core/guards/auth.activate';
 
 const routes: Routes = [
   {
@@ -23,6 +24,11 @@ const routes: Routes = [
   {
     path: 'add-theme',
     component: NewThemeComponent,
+    canActivate: [AuthActivate],
+    data: {
+      authenticationRequired: true,
+      authenticationFailureRedirectUrl: '/login',
+    },
   },
 ];
 
