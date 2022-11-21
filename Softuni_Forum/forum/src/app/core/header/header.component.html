@@ -6,24 +6,33 @@
     <div class="mini-navbar" *ngIf="!isLogged">
       <ul>
         <li>
-          <a routerLink="/login">Login</a>
+          <a routerLink="/login" class="btn">Login</a>
         </li>
         <li>
-          <a routerLink="/register">Register</a>
+          <a routerLink="/register" class="btn">Register</a>
         </li>
+      </ul>
+    </div>
+
+    <div class="mini-navbar" *ngIf="isLogged">
+      <ul>
+        <li>
+          <a routerLink="/profile" class="btn"> {{ firstName }},s profile </a>
+        </li>
+        <li (click)="logout()" id="logout" class="btn">Logout</li>
       </ul>
     </div>
   </div>
   <nav>
     <ul>
       <li>
-        <a routerLink="">Home</a>
+        <a routerLink="" class="btn">Home</a>
       </li>
       <li>
-        <a routerLink="/themes">Themes</a>
+        <a routerLink="/themes" class="btn">Themes</a>
       </li>
       <li>
-        <a routerLink="/add-theme">New Theme</a>
+        <a routerLink="/add-theme" class="btn">New Theme</a>
       </li>
     </ul>
   </nav>
