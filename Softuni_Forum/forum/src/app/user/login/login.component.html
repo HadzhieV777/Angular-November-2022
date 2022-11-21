@@ -8,6 +8,7 @@
           ><span><i class="fas fa-envelope"></i></span
         ></label>
         <input
+          #emailInput
           class="input-error"
           type="email"
           name="email"
@@ -25,6 +26,7 @@
           ><span><i class="fas fa-lock"></i></span
         ></label>
         <input
+          #passwordInput
           type="password"
           name="password"
           id="password"
@@ -38,7 +40,7 @@
                 Password must be at least 4 characters!
             </p> -->
 
-      <button disabled>Login</button>
+      <button (click)="login(emailInput.value, passwordInput.value)">Login</button>
 
       <p class="text-center">
         Have an account?
@@ -47,11 +49,3 @@
     </fieldset>
   </form>
 </div>
-
-
-<li>
-  <a routerLink="/login">Login</a>
-</li>
-<li>
-  <a routerLink="/register">Register</a>
-</li>
