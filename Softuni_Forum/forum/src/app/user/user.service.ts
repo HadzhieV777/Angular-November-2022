@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@angular/core';
 import { LocalStorage } from '../core/injection-tokens';
-import { IUser } from '../interfaces';
+import { IUser } from '../shared/interfaces';
 
 @Injectable()
 export class UserService {
