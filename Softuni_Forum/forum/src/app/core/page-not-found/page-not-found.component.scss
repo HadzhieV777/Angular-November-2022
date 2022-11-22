@@ -1,0 +1,55 @@
+$main-clr: #95c2de;
+
+.mainbox {
+    margin: auto;
+    height: 550px;
+    width: 550px;
+    position: relative;
+}
+
+.far {
+    position: absolute;
+    font-size: 8.5rem;
+    left: 42%;
+    top: 15%;
+    color: $main-clr;
+}
+
+.err {
+    color: $main-clr;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 11rem;
+    position: absolute;
+    left: 20%;
+    top: 8%;
+}
+
+.err2 {
+    color: $main-clr;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 11rem;
+    position: absolute;
+    left: 68%;
+    top: 8%;
+}
+
+
+
+.msg {
+    text-align: center;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 1.6rem;
+    position: absolute;
+    left: 16%;
+    top: 45%;
+    width: 75%;
+}
+
+a {
+    text-decoration: none;
+    color: $main-clr;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
