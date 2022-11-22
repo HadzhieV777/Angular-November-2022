@@ -1,0 +1,5 @@
+ --- RxJS Marbles ---
+ https://rxmarbles.com/
+ 
+ --- Angular Directives ---
+ https://angular.io/guide/built-in-directives
