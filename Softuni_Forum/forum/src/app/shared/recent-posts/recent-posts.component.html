@@ -1,0 +1,19 @@
+<div *ngIf="errorFetcingData">Error loading posts</div>
+<app-loader *ngIf="!postList"></app-loader>
+
+<aside>
+  <div class="aside">
+    <h2 class="title">Recent posts</h2>
+    <div>
+      <div *ngFor="let post of postList" class="aside-theme">
+        <a href="#">
+          <h3>{{ post.themeId.themeName }}</h3>
+          <p>{{ post.userId.username }}</p>
+          <p>
+            <span>{{ post.created_at }}</span>
+          </p>
+        </a>
+      </div>
+    </div>
+  </div>
+</aside>
