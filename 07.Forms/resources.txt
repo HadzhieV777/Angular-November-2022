@@ -20,3 +20,7 @@
  https://angular.io/api/forms/Validators
  https://angular.io/api?type=directive
  https://www.npmjs.com/package/ng5-validation
+ 
+ --- Angular Two-Way Data Binding ---
+ https://www.netjstech.com/2020/04/angular-two-way-data-binding-with-example.html
+ https://angular.io/guide/two-way-binding
