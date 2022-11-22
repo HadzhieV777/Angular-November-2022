@@ -24,3 +24,8 @@
  --- Angular Two-Way Data Binding ---
  https://www.netjstech.com/2020/04/angular-two-way-data-binding-with-example.html
  https://angular.io/guide/two-way-binding
+ 
+ --- setValue / patchValue ---
+ https://ultimatecourses.com/blog/angular-2-form-controls-patch-value-set-value
+ https://www.tektutorialshub.com/angular/setvalue-patchvalue-in-angular/
+ https://www.netjstech.com/2020/10/angular-form-setvalue-and-patchvalue.html
