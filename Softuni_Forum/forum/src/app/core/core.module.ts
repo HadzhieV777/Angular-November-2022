@@ -9,11 +9,12 @@ import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { LocalStorage } from './injection-tokens';
 import { AuthActivate } from './guards/auth.activate';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent],
+  declarations: [HeaderComponent, FooterComponent, PageNotFoundComponent],
   imports: [CommonModule, RouterModule],
-  exports: [HeaderComponent, FooterComponent], // Only for declarations members
+  exports: [HeaderComponent, FooterComponent ], // Only for declarations members
   providers: [
     {
       provide: LocalStorage,
