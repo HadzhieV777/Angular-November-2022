@@ -3,3 +3,15 @@
  
  --- Angular Directives ---
  https://angular.io/guide/built-in-directives
+ 
+ --- Introduction to forms in Angular ---
+ https://angular.io/guide/forms-overview
+ https://medium.com/geekculture/handling-forms-in-angular-f71ee08766b8
+ 
+ --- ng-model Directive --- 
+ https://www.w3schools.com/angular/angular_model.asp
+ 
+ --- ng-model Directive --- 
+ https://www.thecodehubs.com/angular-forms-ngform-directive/
+ https://www.thecodehubs.com/angular-forms-ngform-directive/
+ https://www.geeksforgeeks.org/angular-forms-ngform-directive/
