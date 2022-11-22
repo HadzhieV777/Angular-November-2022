@@ -15,3 +15,8 @@
  https://www.thecodehubs.com/angular-forms-ngform-directive/
  https://www.thecodehubs.com/angular-forms-ngform-directive/
  https://www.geeksforgeeks.org/angular-forms-ngform-directive/
+ 
+ --- Validators list ---
+ https://angular.io/api/forms/Validators
+ https://angular.io/api?type=directive
+ https://www.npmjs.com/package/ng5-validation
