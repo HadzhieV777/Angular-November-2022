@@ -29,3 +29,9 @@
  https://ultimatecourses.com/blog/angular-2-form-controls-patch-value-set-value
  https://www.tektutorialshub.com/angular/setvalue-patchvalue-in-angular/
  https://www.netjstech.com/2020/10/angular-form-setvalue-and-patchvalue.html
+ 
+ --- Reactive Forms --- 
+ https://v2.angular.io/docs/ts/latest/guide/reactive-forms.html
+ https://angular.io/guide/reactive-forms
+ https://www.tektutorialshub.com/angular/angular-reactive-forms/
+ https://www.digitalocean.com/community/tutorials/angular-reactive-forms-introduction
