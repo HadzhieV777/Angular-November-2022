@@ -8,6 +8,7 @@ import { UserService } from 'src/app/user/user.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
+  // we make getter that takes the actual moment value from the service
   get isLogged(): boolean {
     return this.userService.isLogged;
   }
