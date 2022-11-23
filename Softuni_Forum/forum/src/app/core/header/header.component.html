@@ -3,7 +3,8 @@
     <div class="logo-wrap">
       <p class="logo"><span class="logo">SoftUni Forum</span></p>
     </div>
-    <div class="mini-navbar" *ngIf="!isLogged">
+
+    <ng-template #loggedOutTemplate>
       <ul>
         <li>
           <a routerLink="/login" class="btn">Login</a>
@@ -12,15 +13,21 @@
           <a routerLink="/register" class="btn">Register</a>
         </li>
       </ul>
-    </div>
+    </ng-template>
 
-    <div class="mini-navbar" *ngIf="isLogged">
+    <ng-template #loggedInTemplate>
       <ul>
         <li>
           <a routerLink="/profile" class="btn"> {{ firstName }},s profile </a>
         </li>
         <li (click)="logout()" id="logout" class="btn">Logout</li>
       </ul>
+    </ng-template>
+
+    <div class="mini-navbar">
+      <ng-container
+        *ngTemplateOutlet="isLogged ? loggedInTemplate : loggedOutTemplate"
+      ></ng-container>
     </div>
   </div>
   <nav>
