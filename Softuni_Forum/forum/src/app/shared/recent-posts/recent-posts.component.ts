@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../api.service';
-import { IPost } from '../../interfaces/index';
+import { IPost } from '../interfaces/index';
 
 @Component({
   selector: 'app-recent-posts',
