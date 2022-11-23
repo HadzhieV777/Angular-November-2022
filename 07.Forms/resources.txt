@@ -1,6 +1,4 @@
- --- RxJS Marbles ---
- https://rxmarbles.com/
- 
+
  --- Angular Directives ---
  https://angular.io/guide/built-in-directives
  
@@ -11,7 +9,7 @@
  --- ng-model Directive --- 
  https://www.w3schools.com/angular/angular_model.asp
  
- --- ng-model Directive --- 
+ --- ng-form Directive --- 
  https://www.thecodehubs.com/angular-forms-ngform-directive/
  https://www.thecodehubs.com/angular-forms-ngform-directive/
  https://www.geeksforgeeks.org/angular-forms-ngform-directive/
@@ -35,3 +33,11 @@
  https://angular.io/guide/reactive-forms
  https://www.tektutorialshub.com/angular/angular-reactive-forms/
  https://www.digitalocean.com/community/tutorials/angular-reactive-forms-introduction
+ 
+  --- RxJS Marbles ---
+ https://rxmarbles.com/
+ 
+ 
+ --- JS Web Workers ---
+ https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers
+ 
