@@ -1,16 +1,16 @@
 /* theme content  */
 
-.theme-content {
+/* .theme-content {
     display: flex;
     flex-direction: column;
     width: 80%;
-}
+} */
 
 /* theme title  */
 
 /* theme title  */
 
-.theme-name-wrapper {
+/* .theme-name-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -71,11 +71,11 @@
 
 .theme-name h2 {
     padding-top: 0;
-}
+} */
 
 /* comment  */
 
-.comment {
+/* .comment {
     margin-top: 1em;
     border: 1px solid;
     border-radius: 0.3em;
@@ -151,17 +151,17 @@
 
 .footer .fas.fa-thumbs-down {
     color: red;
-}
+} */
 
 /* answer-comment */
 
-.answer-comment {
-    width: 100%;
+/* .answer-comment {
+    width: 100%; */
     /* display: flex; */
-    margin-top: 1em;
-}
+    /* margin-top: 1em;
+} */
 
-.answer-comment p {
+/* .answer-comment p {
     flex-basis: 15%;
     padding-bottom: 0.3em;
 }
@@ -198,4 +198,4 @@
 
 .comment-area {
     min-width: 100%
-}
+} */
