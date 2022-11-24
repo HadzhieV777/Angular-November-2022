@@ -1,0 +1,62 @@
+form {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid gold;
+    width: 400px;
+    height: 280px;
+
+    & h1 {
+        color: goldenrod;
+        font-weight: 500;
+    }
+
+    & input {
+        padding: .5rem;
+        margin: .5rem;
+        border-color: brown;
+        border-radius: .5rem;
+    }
+
+    ;
+
+    & label {
+        font-weight: 600;
+        color: coral;
+    }
+
+    ;
+
+    & .form-group {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    & button {
+        margin: 1rem;
+        padding: .5rem;
+        font-size: 1rem;
+        background-color: chartreuse;
+        border-color: chartreuse;
+        color: white;
+        border-radius: .8rem;
+    }
+
+    & button:hover {
+        border-color: chocolate;
+        color: chocolate;
+        border-radius: .8rem;
+    }
+}
+
+.form-value-container {
+    text-align: center;
+    margin: 2rem;
+    padding: .6rem;
+    color: coral;
+    font-weight: 700;
+    font-size: 1.4rem;
+}
