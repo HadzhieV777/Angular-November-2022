@@ -1,0 +1,81 @@
+$main-clr-crimson: crimson;
+$clr-darkred: darkred;
+$details-clr: rgb(126, 9, 33);
+
+form {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    border-radius: .5rem;
+    border: 2px solid $main-clr-crimson;
+    width: 500px;
+    height: 600px;
+    box-shadow: 1rem .7rem .3rem .1rem rgb(93, 88, 88);
+
+    & h1 {
+        color: $main-clr-crimson;
+        font-weight: 700;
+        font-size: 3rem;
+    }
+
+    & .inputs-container input {
+        padding: .7rem;
+        margin: 1rem;
+        border-color: $clr-darkred;
+        width: 100%;
+        border-radius: 1rem;
+    }
+
+    ;
+
+    & label {
+        font-weight: 600;
+        color: purple;
+    }
+
+    ;
+
+    & .form-group {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+
+    & button {
+        margin: 1rem;
+        padding: 1rem;
+        font-size: 1rem;
+        background-color: $main-clr-crimson;
+        border-color: $main-clr-crimson;
+        color: whitesmoke;
+        width: 40%;
+        border-radius: .2rem;
+    }
+
+    & button:hover {
+        border: 2px solid $details-clr;
+        color: $details-clr;
+        font-weight: 800;
+        cursor: pointer;
+    }
+
+    & .error-msg {
+        color: red;
+        font-size: 1.1rem;
+        margin: .5rem;
+        font-weight: 400;
+    }
+}
+
+.form-value-container {
+    text-align: center;
+    margin: 2rem;
+    padding: .6rem;
+    color: $main-clr-crimson;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
