@@ -8,7 +8,8 @@ import { MyIfDirective } from './my-if.directive';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MaxCountDirective } from './max-count.directive';
 
 @NgModule({
   declarations: [
@@ -17,15 +18,16 @@ import { FormsModule } from '@angular/forms';
     MyIfDirective,
     LoginComponent,
     HomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    MaxCountDirective,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    // Template driven forms
-    FormsModule,
+    FormsModule, // for template driven forms
+    ReactiveFormsModule, // for in class forms that we have to bind in the template
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
