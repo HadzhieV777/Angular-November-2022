@@ -1,5 +1,6 @@
 <div class="container">
-  <form class="login" action="" method="post">
+  <!-- #form gives us a refrence to the el -->
+  <form #form="ngForm" class="login" (ngSubmit)="loginHandler(form)">
     <fieldset>
       <h2>Login Form</h2>
 
@@ -7,20 +8,23 @@
         <label for="email"
           ><span><i class="fas fa-envelope"></i></span
         ></label>
+        <!-- /#emailInput="ngModel"/ takes the attached directive to the element -->
         <input
-          #emailInput
+          #emailInput="ngModel"
           class="input-error"
           type="email"
+          ngModel
+          required
           name="email"
           id="email"
           placeholder="john.doe@gmail.com"
         />
+        
       </p>
-      <p class="error">Email is required!</p>
-      <!-- <p class="error">
-                Email is not valid!
-            </p> -->
-
+      <ng-container *ngIf="emailInput.touched">
+        <p class="error" *ngIf="emailInput.errors?.['required']">Email is required!</p>
+        <p class="error">Email is not valid!</p>
+      </ng-container>
       <p class="field field-icon">
         <label for="password"
           ><span><i class="fas fa-lock"></i></span
@@ -28,19 +32,16 @@
         <input
           #passwordInput
           type="password"
+          ngModel
           name="password"
           id="password"
           placeholder="******"
         />
       </p>
-      <!-- <p class="error">
-                Password is required!
-            </p>
-            <p class="error">
-                Password must be at least 4 characters!
-            </p> -->
+      <p class="error">Password is required!</p>
+      <p class="error">Password must be at least 4 characters!</p>
 
-      <button (click)="login(emailInput.value, passwordInput.value)">Login</button>
+      <button>Login</button>
 
       <p class="text-center">
         Have an account?
