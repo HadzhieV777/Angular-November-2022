@@ -1,16 +1,22 @@
-<form #loginForm="ngForm" (ngSubmit)="handleFormSubmit(loginForm.value)">
+<form #loginForm="ngForm" (ngSubmit)="handleFormSubmit(loginForm)">
     <h1>Login</h1>
     <div class="form-group">
+        <ng-container *ngIf="emailInput.touched">
+            <div class="error-msg" *ngIf="emailInput.errors?.['required']">Email is required!</div>
+            <div class="error-msg" *ngIf="emailInput.errors?.['email']">Invalid email!</div>
+        </ng-container>
         <label for="email">Email</label>
-        <input type="text" id="email" name="email" ngModel> 
+        <!-- Taking ref to ngModel to be able to validate -->
+        <input type="text" id="email" name="email" #emailInput="ngModel" ngModel email required> 
         <!-- [(ngModel)]="email" -->
     </div>
-
+    
     <div class="form-group">
         <label for="password">Password</label>
-        <input type="text" id="password" name="password" ngModel>
+        <input type="password" id="password" name="password" #passwordInput="ngModel" ngModel [appMaxCount]="5">
+        <div class="error-msg" *ngIf="passwordInput.errors?.['appMaxCount']">Invalid password!</div>
     </div>
-
+    
     <button>Login</button>
 </form>
 
