@@ -1,0 +1,38 @@
+import { Directive, Input } from '@angular/core';
+import {
+  AbstractControl,
+  NG_VALIDATORS,
+  ValidationErrors,
+  Validator,
+} from '@angular/forms';
+
+@Directive({
+  selector: '[appMaxCount]',
+  providers: [
+    {
+      provide: NG_VALIDATORS,
+      useExisting: MaxCountDirective,
+      multi: true, // will take the values and wrap them in []
+    },
+  ],
+})
+export class MaxCountDirective implements Validator {
+  @Input() appMaxCount: number | undefined;
+
+  constructor() {}
+  validate(control: AbstractControl<any, any>): ValidationErrors | null {
+    if (
+      this.appMaxCount === undefined ||
+      (control.value?.length || 0) <= this.appMaxCount
+    ) {
+      return null;
+    }
+    return {
+      appMaxCount: this.appMaxCount,
+    };
+  }
+
+  // registerOnValidatorChange?(fn: () => void): void {
+  //   throw new Error('Method not implemented.');
+  // }
+}
