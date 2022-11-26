@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { LoaderComponent } from './loader/loader.component';
 import { RecentPostsComponent } from './recent-posts/recent-posts.component';
 import { HomeComponent } from './home/home.component';
+import { AppEmailDirective } from './validators/app-email.directive';
 
 
 
@@ -10,7 +11,8 @@ import { HomeComponent } from './home/home.component';
   declarations: [
     LoaderComponent,
     RecentPostsComponent,
-    HomeComponent
+    HomeComponent,
+    AppEmailDirective
   ],
   imports: [
     CommonModule
@@ -18,7 +20,8 @@ import { HomeComponent } from './home/home.component';
   exports: [
     LoaderComponent,
     RecentPostsComponent,
-    HomeComponent
+    HomeComponent,
+    AppEmailDirective
   ]
 })
 export class SharedModule { }
