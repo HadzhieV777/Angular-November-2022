@@ -9,11 +9,13 @@
           ><span><i class="fas fa-envelope"></i></span
         ></label>
         <!-- /#emailInput="ngModel"/ takes the attached directive to the element -->
+        
         <input
           #emailInput="ngModel"
           class="input-error"
           type="email"
           ngModel
+          [appEmail]="['bg', 'com']"
           required
           name="email"
           id="email"
@@ -23,25 +25,32 @@
       </p>
       <ng-container *ngIf="emailInput.touched">
         <p class="error" *ngIf="emailInput.errors?.['required']">Email is required!</p>
-        <p class="error">Email is not valid!</p>
+        <p class="error" *ngIf="emailInput.errors?.['appEmailValidator']">Email is not valid!</p>
       </ng-container>
       <p class="field field-icon">
         <label for="password"
           ><span><i class="fas fa-lock"></i></span
         ></label>
+
         <input
-          #passwordInput
+          #passwordInput="ngModel"
           type="password"
           ngModel
           name="password"
           id="password"
           placeholder="******"
+          required
+          [minlength]="5"
         />
       </p>
-      <p class="error">Password is required!</p>
-      <p class="error">Password must be at least 4 characters!</p>
 
-      <button>Login</button>
+      <ng-container *ngIf="passwordInput.touched">
+        <p class="error" *ngIf="passwordInput.errors?.['required']">Password is required!</p>
+        <p class="error" *ngIf="passwordInput.errors?.['minlength']">Password must be at least 5 characters!</p>
+      </ng-container>
+      
+
+      <button [disabled]="form.invalid">Login</button>
 
       <p class="text-center">
         Have an account?
