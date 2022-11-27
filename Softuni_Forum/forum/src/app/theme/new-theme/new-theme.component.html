@@ -3,28 +3,60 @@
     <div class="header-background">
       <span>New Theme</span>
     </div>
-    <form>
+    <form #form="ngForm" (ngSubmit)="addNewTheme(form)">
       <div class="new-theme-title">
         <label for="themeName">Title <span class="red">*</span></label>
-        <input type="text" name="themeName" id="themeName" />
-        <p class="error">Theme name is required.</p>
-        <p class="error">Theme name must be at least 5 characters long.</p>
+        <input
+          ngModel
+          required
+          #nameInput="ngModel"
+          type="text"
+          name="themeName"
+          id="themeName"
+          minlength="5"
+        />
+
+        <ng-container *ngIf="nameInput.touched">
+          <p class="error" *ngIf="nameInput.errors?.['required']">
+            Theme name is required.
+          </p>
+          <p class="error" *ngIf="nameInput.errors?.['minlength']">
+            Theme name must be at least
+            {{nameInput.errors?.['minlength']['requiredLength']}} characters
+            long.
+          </p>
+        </ng-container>
       </div>
       <div class="new-theme-content">
         <label for="postText">Post <span class="red">*</span></label>
         <textarea
           type="text"
+          #contentInput="ngModel"
+          ngModel
           name="postText"
+          required
+          minlength="10"
           id="postText"
           rows="8"
           class="height"
         ></textarea>
-        <p class="error">The field with your post is required.</p>
-        <p class="error">Post must be at least 10 characters long.</p>
+
+        <ng-container *ngIf="contentInput.touched">
+          <p class="error" *ngIf="contentInput.errors?.['required']">
+            The field with your post is required.
+          </p>
+          <p class="error" *ngIf="contentInput.errors?.['minlength']">
+            Post must be at least
+            {{contentInput.errors?.['minlength']['requiredLength']}} characters
+            long.
+          </p>
+        </ng-container>
       </div>
       <div class="new-theme-buttons">
-        <button class="cancel">Cancel</button>
-        <button class="public">Post</button>
+        <button class="cancel" type="button" routerLink="/themes">
+          Cancel
+        </button>
+        <button class="public" [disabled]="form.invalid">Post</button>
       </div>
     </form>
   </div>
