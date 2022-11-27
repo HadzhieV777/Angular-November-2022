@@ -1,5 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { appEmailDomains } from 'src/app/shared/constants';
+import {
+  appEmailValidator,
+  matchPasswordGroupValidator,
+} from 'src/app/shared/validators';
 import { UserService } from '../user.service';
 
 @Component({
@@ -9,16 +15,36 @@ import { UserService } from '../user.service';
 })
 export class RegisterComponent {
   form = this.fb.group({
-    username: [],
-    email: [],
-    tel: [],
-    passwords: this.fb.group({
-      password: [],
-      rePassword: [],
-    }),
+    username: ['', [Validators.required, Validators.minLength(5)]],
+    email: ['', [Validators.required, appEmailValidator(appEmailDomains)]],
+    ext: [''],
+    tel: [''],
+    passwords: this.fb.group(
+      {
+        password: ['', [Validators.required, Validators.minLength(5)]],
+        rePassword: [],
+      },
+      {
+        validators: [matchPasswordGroupValidator('password', 'rePassword')],
+      }
+    ),
   });
 
-  constructor(private userService: UserService, private fb: FormBuilder) {}
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private userService: UserService,
+    private router: Router,
+    private fb: FormBuilder
+  ) {}
 
-  register(): void {}
+  register(): void {
+    if (this.form.invalid) {
+      return;
+    }
+    console.log(this.form.value);
+
+    const redirectUrl =
+      this.activatedRoute.snapshot.queryParams['redirectUrl'] || '/';
+    this.router.navigate([redirectUrl]);
+  }
 }
