@@ -1,6 +1,7 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { appEmailDomains } from 'src/app/shared/constants';
 import { UserService } from '../user.service';
 
 @Component({
@@ -9,6 +10,8 @@ import { UserService } from '../user.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
+  appEmailDomains = appEmailDomains;
+
   @ViewChild(
     // form,
     NgForm,
@@ -17,7 +20,7 @@ export class LoginComponent {
   form!: ElementRef<HTMLInputElement>;
 
   constructor(
-    private acticatedRoute: ActivatedRoute,
+    private activatedRoute: ActivatedRoute,
     private userService: UserService,
     private router: Router
   ) {}
@@ -32,7 +35,7 @@ export class LoginComponent {
     } as any;
 
     const redirectUrl =
-      this.acticatedRoute.snapshot.queryParams['redirectUrl'] || '/';
+      this.activatedRoute.snapshot.queryParams['redirectUrl'] || '/';
     this.router.navigate([redirectUrl]);
   }
 }
