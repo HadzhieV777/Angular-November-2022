@@ -4,7 +4,12 @@ import { IUser } from '../shared/interfaces';
 
 @Injectable()
 export class UserService {
-  user: IUser | undefined;
+
+  user: IUser | undefined = {
+    username: "John",
+    email: 'test@gmail.com',
+    tel: '00359878323222'
+  } as any;
 
   get isLogged(): boolean {
     return !!this.user;
