@@ -1,0 +1,28 @@
+
+--- Pipes ---
+https://www.simplilearn.com/tutorials/angular-tutorial/angular-pipes
+https://angular.io/api?query=pipe
+
+--- JWT ---
+https://blog.angular-university.io/angular-jwt-authentication/
+https://www.ionos.com/digitalguide/websites/web-development/json-web-token-jwt/
+https://www.geeksforgeeks.org/json-web-token-jwt/
+
+--- Http Interceptor ---
+https://angular.io/api/common/http/HttpInterceptor
+https://blog.angulartraining.com/http-interceptors-in-angular-61dcf80b6bdd
+https://medium.com/@er.surajnegi/what-are-angular-http-interceptors-and-how-to-create-them-82d1d6159c4e
+
+--- Lazy Loading ---
+https://www.freecodecamp.org/news/lazy-loading-in-angular-intro-to-ngmodules/
+https://angular.io/guide/lazy-loading-ngmodules
+https://www.javatpoint.com/angular-lazy-loading
+
+--- RxJS Subjects ---
+https://blog.angulartraining.com/rxjs-subjects-a-tutorial-4dcce0e9637f
+https://rxjs.dev/guide/subject
+https://stackblitz.com/edit/rxjs-subjects-angular?file=src%2Fapp%2Fapp.component.ts
+https://medium.com/@ivan.okhrimovich/rxjs-observables-and-subjects-in-angular-a61cc5e052d0
+
+--- Off ---
+https://www.simplilearn.com/tutorials/angular-tutorial/angular-interview-questions
