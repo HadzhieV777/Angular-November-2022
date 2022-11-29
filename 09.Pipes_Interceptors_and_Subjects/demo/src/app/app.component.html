@@ -1,2 +1,9 @@
-{{calScores(obj)}}
-<button (click)="addProp()">Add prop</button>
+<!-- Pipe -->
+<!-- {{ obj.scores | reduce: add : 1000 }} -->
+<!-- The pipe will re-calculate only if the first prop value is changed -->
+
+<!-- Custom func -->
+<!-- {{ calScores(obj) }}
+<button (click)="addProp()">Add prop</button> -->
+
+{{ myPromise | async}}
