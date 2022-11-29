@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { interval, map } from 'rxjs'
 
 function add(a: number | string, b: number | string): number | string {
   return ((a as any) + b) as any;
@@ -27,12 +28,16 @@ export class AppComponent {
   private scores: Number[] = [];
   private result: Number = 0;
 
+  $time = interval(1000).pipe(
+    map(() => new Date())
+  )
+
   // Async pipe
-  myPromise = new Promise((res) => {
-    setTimeout(() => {
-      res("Hello!")
-    }, 5000)
-  })
+  // myPromise = new Promise((res) => {
+  //   setTimeout(() => {
+  //     res("Hello!")
+  //   }, 5000)
+  // })
 
   // Data memorization
   // calScores work as pure pipe: while(ref not changed) no re-calc
