@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 
+function add(a: number | string, b: number | string): number | string {
+  return ((a as any) + b) as any;
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -18,8 +22,17 @@ export class AppComponent {
     scores: [1, 2, 3, 4, 5, 6, 7],
   };
 
+  add = add;
+
   private scores: Number[] = [];
   private result: Number = 0;
+
+  // Async pipe
+  myPromise = new Promise((res) => {
+    setTimeout(() => {
+      res("Hello!")
+    }, 5000)
+  })
 
   // Data memorization
   // calScores work as pure pipe: while(ref not changed) no re-calc
