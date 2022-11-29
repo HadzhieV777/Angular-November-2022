@@ -3,18 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { appInterceptorProvider } from './app.interceptor';
 import { ReducePipe } from './reduce.pipe';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ReducePipe
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  declarations: [AppComponent, ReducePipe],
+  imports: [BrowserModule, AppRoutingModule],
+  providers: [appInterceptorProvider],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
