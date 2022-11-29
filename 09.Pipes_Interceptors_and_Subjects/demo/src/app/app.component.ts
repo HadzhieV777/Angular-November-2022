@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { interval, map } from 'rxjs'
+import { Component, OnInit } from '@angular/core';
+import { interval, map } from 'rxjs';
+import { UserService } from './user.service';
 
 function add(a: number | string, b: number | string): number | string {
   return ((a as any) + b) as any;
@@ -10,7 +11,7 @@ function add(a: number | string, b: number | string): number | string {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   // title = 'demo';
   // obj = {
   //   prop1: 'Hello World',
@@ -28,9 +29,7 @@ export class AppComponent {
   private scores: Number[] = [];
   private result: Number = 0;
 
-  $time = interval(1000).pipe(
-    map(() => new Date())
-  )
+  $time = interval(1000).pipe(map(() => new Date()));
 
   // Async pipe
   // myPromise = new Promise((res) => {
@@ -38,6 +37,8 @@ export class AppComponent {
   //     res("Hello!")
   //   }, 5000)
   // })
+
+  constructor(private userService: UserService) {}
 
   // Data memorization
   // calScores work as pure pipe: while(ref not changed) no re-calc
@@ -54,5 +55,12 @@ export class AppComponent {
 
   addProp() {
     (this.obj as any)['test'] = 500;
+  }
+
+  ngOnInit(): void {
+    this.userService.getUsers().subscribe({
+      next: (users) => console.log(users),
+      error: (err) => console.log(err),
+    });
   }
 }
