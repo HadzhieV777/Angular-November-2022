@@ -22,6 +22,7 @@ export class AppComponent {
   private result: Number = 0;
 
   // Data memorization
+  // calScores work as pure pipe: while(ref not changed) no re-calc
   calScores(obj: { scores: Number[] }) {
     if (this.scores !== obj.scores) {
       this.result = obj.scores.reduce(
