@@ -7,7 +7,11 @@ import {
   HttpResponse,
   HTTP_INTERCEPTORS,
 } from '@angular/common/http';
-import { Observable, tap } from 'rxjs';
+import { catchError, EMPTY, Observable, of, tap, throwError } from 'rxjs';
+
+import { environment } from 'src/environments/environment';
+
+const apiURL = environment.apiURL;
 
 @Injectable()
 export class AppInterceptor implements HttpInterceptor {
@@ -15,11 +19,28 @@ export class AppInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    return next.handle(req).pipe(
+    let request = req;
+    if (req.url.startsWith('/api')) {
+      request = req.clone({
+        url: req.url.replace('/api', apiURL),
+      });
+    }
+    return next.handle(request).pipe(
       tap((req) => {
         if (req instanceof HttpResponse) {
           console.log(req.body);
         }
+      }),
+      catchError((err) => {
+        if (err.status === 0) {
+          console.log('UNKNOWN ERROR');
+          return EMPTY;
+          // return Promise.resolve();
+          // return [];
+        }
+        // return [err];
+        // return Promise.reject(err);
+        return throwError(() => err);
       })
     );
   }
