@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { interval, map } from 'rxjs';
+import { Component } from '@angular/core';
+import { interval, map, startWith } from 'rxjs';
 import { UserService } from './user.service';
 
 function add(a: number | string, b: number | string): number | string {
@@ -11,7 +11,7 @@ function add(a: number | string, b: number | string): number | string {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   // title = 'demo';
   // obj = {
   //   prop1: 'Hello World',
@@ -29,7 +29,10 @@ export class AppComponent implements OnInit {
   private scores: Number[] = [];
   private result: Number = 0;
 
-  $time = interval(1000).pipe(map(() => new Date()));
+  $time = interval(1000).pipe(
+    startWith(null), // emmit value on loading
+    map(() => new Date())
+  );
 
   // Async pipe
   // myPromise = new Promise((res) => {
@@ -37,6 +40,9 @@ export class AppComponent implements OnInit {
   //     res("Hello!")
   //   }, 5000)
   // })
+
+  user$ = this.userService.users$;
+  isLoadingUsers$ = this.userService.isLoading$;
 
   constructor(private userService: UserService) {}
 
@@ -57,10 +63,14 @@ export class AppComponent implements OnInit {
     (this.obj as any)['test'] = 500;
   }
 
-  ngOnInit(): void {
-    this.userService.getUsers().subscribe({
-      next: (users) => console.log(users),
-      error: (err) => console.log(err),
-    });
+  reloadUsers(): void {
+    this.userService.loadUsers();
   }
+
+  // ngOnInit(): void {
+  //   this.userService.loadUsers().subscribe({
+  //     next: (users) => console.log(users),
+  //     error: (err) => console.log(err),
+  //   });
+  // }
 }
