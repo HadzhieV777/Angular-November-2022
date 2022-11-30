@@ -8,4 +8,24 @@
 
 <!-- {{ myPromise | async}} -->
 
-{{$time | async | date: 'HH:mm:ss'}}
+<nav>
+  <div class="clock">
+    {{ $time | async | date: "HH:mm:ss" }}
+  </div>
+  <ul>
+    <li><a routerLink="/">Home</a></li>
+    <li><a routerLink="/lazy">Lazy</a></li>
+  </ul>
+</nav>
+
+<div *ngIf="isLoadingUsers$ | async">Loading...</div>
+<div *ngIf="!(isLoadingUsers$ | async)">{{ user$ | async | json }}</div>
+
+<button *ngIf="(user$ | async) === null" (click)="reloadUsers()">
+  Load Users
+</button>
+<button *ngIf="(user$ | async) !== null" (click)="reloadUsers()">
+  Reload Users
+</button>
+
+<router-outlet></router-outlet>
