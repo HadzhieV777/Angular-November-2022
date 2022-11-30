@@ -1,0 +1,26 @@
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: darkgrey;
+    border-radius: .6rem;
+
+    & ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+
+    & li {
+        list-style: none;
+    }
+
+    & a {
+        text-decoration: none;
+        color: crimson;
+        font-weight: 700;
+    }
+
+}
