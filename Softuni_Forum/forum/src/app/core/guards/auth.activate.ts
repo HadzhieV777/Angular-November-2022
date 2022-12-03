@@ -6,36 +6,28 @@ import {
   RouterStateSnapshot,
   UrlTree,
 } from '@angular/router';
-import { Observable } from 'rxjs';
+import { map, Observable, take } from 'rxjs';
 import { UserService } from 'src/app/user/user.service';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class AuthActivate implements CanActivate {
-  constructor(private router: Router, private userService: UserService) {}
 
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ):
-    | boolean
-    | UrlTree
-    | Observable<boolean | UrlTree>
-    | Promise<boolean | UrlTree> {
-    const { authenticationRequired, authenticationFailureRedirectUrl } =
-      route.data;
+  constructor(private userService: UserService, private router: Router) { }
 
-    if (
-      typeof authenticationRequired === 'boolean' &&
-      authenticationRequired === this.userService.isLogged
-    ) { return true; }
-
-    let authRedirectUrl = authenticationFailureRedirectUrl;
-    if (authenticationRequired) {
-      const loginRedirectUrl = route.url.reduce(
-        (acc, s) => `${acc}/${s.path}`, '');
-      authRedirectUrl += `?redirectUrl=${loginRedirectUrl}`;
-    }
-
-    return this.router.parseUrl(authenticationFailureRedirectUrl || '/');
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
+    return this.userService.user$.pipe(
+      take(1),
+      map(user => {
+        const loginRequired = route.data['loginRequired'];
+        if (loginRequired === undefined || !!user === loginRequired) { return true; }
+        const returnUrl = route.url.map(u => u.path).join('/');
+        return !!user ?
+          this.router.createUrlTree(['/'], { queryParams: { returnUrl } }) :
+          this.router.createUrlTree(['/login'], { queryParams: { returnUrl } });
+      })
+    );
   }
+
 }
