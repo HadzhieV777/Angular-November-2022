@@ -1,53 +1,88 @@
-import { Inject, Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Inject, Injectable, OnDestroy } from '@angular/core';
+import { BehaviorSubject, catchError, filter, of, Subscription, tap } from 'rxjs';
 import { LocalStorage } from '../core/injection-tokens';
 import { IUser } from '../shared/interfaces';
 
-@Injectable()
-export class UserService {
+// The only lifecycle hook in the services is OnDestroy
 
-  user: IUser | undefined = {
-    username: "John",
-    email: 'test@gmail.com',
-    tel: '00359878323222'
-  } as any;
+@Injectable()
+export class UserService implements OnDestroy {
+  private user$$ = new BehaviorSubject<undefined | null | IUser>(undefined);
+  user$ = this.user$$
+    .asObservable()
+    .pipe(
+      filter((val): val is IUser | null => val !== undefined)
+    );
+
+  user: IUser | null = null;
 
   get isLogged(): boolean {
     return !!this.user;
   }
 
+  subscription: Subscription;
+  // Represents a disposable resource, such as the execution of an Observable.
+  // A Subscription has one important method,
+  // unsubscribe, that takes no argument and just disposes the resource held by the subscription.
+
   constructor(
-    @Inject(LocalStorage)
-    private localStorage: Window['localStorage']
+    private http: HttpClient // @Inject(LocalStorage) // private localStorage: Window['localStorage']
   ) {
-    try {
-      const localStorageUser = this.localStorage.getItem('<USER>') || undefined;
-
-      if (localStorageUser) {
-        this.user = JSON.parse(localStorageUser);
-      }
-    } catch {
-      this.user = undefined;
-    }
+    this.subscription = this.user$.subscribe((user) => {
+      this.user = user;
+    });
+    // try {
+    //   const localStorageUser = this.localStorage.getItem('<USER>') || undefined;
+    //   if (localStorageUser) {
+    //     this.user = JSON.parse(localStorageUser);
+    //   }
+    // } catch {
+    //   this.user = null;
+    // }
+  }
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
-  login(email: string, password: string): void {
-    this.user = {
-      themes: ['Theme1', 'Theme2'],
-      posts: ['Post1', 'Post2'],
-      _id: '122qqqaqrd41',
-      tel: '08888222233',
-      email,
-      username: 'Pesho',
-      password,
-      created_at: '01.12.2022',
-      updatedAt: '01.12.2022',
-      __v: 3,
-    };
-    this.localStorage.setItem('<USER>', JSON.stringify(this.user));
+  register(
+    username: string,
+    email: string,
+    password: string,
+    rePassword: string,
+    tel?: string
+  ) {
+    return this.http
+      .post<IUser>('/api/register', {
+        username,
+        email,
+        password,
+        rePassword,
+        tel,
+      })
+      .pipe(tap((user) => this.user$$.next(user)));
   }
 
-  logout(): void {
-    this.user = undefined;
-    this.localStorage.removeItem("<USER>")
+  login(email: string, password: string) {
+    return this.http
+      .post<any>('/api/login', { email, password })
+      .pipe(tap((user) => this.user$$.next(user)));
+  }
+
+  logout() {
+    return this.http
+      .post<void>('/api/logout', {})
+      .pipe(tap((user) => this.user$$.next(null)));
+    // this.localStorage.removeItem("<USER>")
+  }
+
+  getProfile() {
+    return this.http
+      .get<IUser>('/api/users/profile')
+      .pipe(tap((user) => this.user$$.next(user)),
+      catchError((err) => {
+        this.user$$.next(null)
+        return of(err); // [off]
+      }));
   }
 }
