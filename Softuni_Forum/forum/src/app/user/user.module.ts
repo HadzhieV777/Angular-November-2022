@@ -7,9 +7,10 @@ import { UserRoutingModule } from './user-routing.module';
 import { UserService } from './user.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent, ProfileComponent],
+  declarations: [LoginComponent, RegisterComponent, ProfileComponent, LogoutComponent],
   imports: [CommonModule, UserRoutingModule, FormsModule, SharedModule, ReactiveFormsModule],
   providers: [UserService],
 })
