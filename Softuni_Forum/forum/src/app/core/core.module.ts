@@ -10,11 +10,12 @@ import { RouterModule } from '@angular/router';
 import { LocalStorage } from './injection-tokens';
 import { AuthActivate } from './guards/auth.activate';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent, PageNotFoundComponent],
+  declarations: [HeaderComponent, FooterComponent, PageNotFoundComponent, ErrorComponent],
   imports: [CommonModule, RouterModule],
-  exports: [HeaderComponent, FooterComponent ], // Only for declarations members
+  exports: [HeaderComponent, FooterComponent, ErrorComponent ], // Only for declarations members
   providers: [
     {
       provide: LocalStorage,
