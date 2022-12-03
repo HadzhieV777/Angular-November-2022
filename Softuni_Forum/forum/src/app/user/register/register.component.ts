@@ -41,10 +41,20 @@ export class RegisterComponent {
     if (this.form.invalid) {
       return;
     }
-    console.log(this.form.value);
 
-    const redirectUrl =
-      this.activatedRoute.snapshot.queryParams['redirectUrl'] || '/';
-    this.router.navigate([redirectUrl]);
+    const {
+      username,
+      email,
+      passwords: { password, rePassword } = {},
+      tel,
+    } = this.form.value;
+    this.userService
+      .register(username!, email!, password!, rePassword!, tel || undefined)
+      .subscribe((user) => {
+
+        const redirectUrl =
+          this.activatedRoute.snapshot.queryParams['redirectUrl'] || '/';
+        this.router.navigate([redirectUrl]);
+      });
   }
 }
