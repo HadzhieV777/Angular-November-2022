@@ -1,39 +1,25 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { ThemeListComponent } from './theme-list/theme-list.component';
-import { NewThemeComponent } from './new-theme/new-theme.component';
-import { SingleThemeComponent } from './single-theme/single-theme.component';
-import { AuthActivate } from '../core/guards/auth.activate';
+import { RouterModule, Routes } from "@angular/router";
+import { MainComponent } from "./main/main.component";
+import { NewThemeComponent } from "./new-theme/new-theme.component";
+import { ThemeResolver } from "./resolvers/theme.resolver";
+import { SingleThemeComponent } from "./single-theme/single-theme.component";
 
 const routes: Routes = [
   {
-    path: 'themes',
-    children: [
-      {
-        path: '',
-        pathMatch: 'full',
-        component: ThemeListComponent,
-      },
-      {
-        path: ':themeId',
-        component: SingleThemeComponent,
-      },
-    ],
+    path: 'recent',
+    component: MainComponent
   },
-
   {
-    path: 'add-theme',
-    component: NewThemeComponent,
-    canActivate: [AuthActivate],
-    data: {
-      authenticationRequired: true,
-      authenticationFailureRedirectUrl: '/login',
-    },
+    path: 'new',
+    component: NewThemeComponent
   },
+  {
+    path: 'detail/:id',
+    resolve: {
+      theme: ThemeResolver
+    },
+    component: SingleThemeComponent
+  }
 ];
 
-@NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
-})
-export class ThemeRoutingModule {}
+export const ThemeRoutingModule = RouterModule.forChild(routes);
