@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, debounceTime, delay, take } from 'rxjs';
+import { BehaviorSubject, debounceTime, delay, filter, take } from 'rxjs';
 import { API_ERROR } from 'src/app/shared/constants';
 
 @Component({
@@ -15,7 +15,7 @@ export class ErrorComponent implements OnInit {
     @Inject(API_ERROR) private apiError: BehaviorSubject<Error | null>,
     private router: Router
   ) {
-    this.apiError$.pipe(debounceTime(0), take(1)).subscribe(() => {
+    this.apiError$.pipe(debounceTime(0), take(1), filter(val => !val)).subscribe(() => {
       this.router.navigate(['/']);
     })
   }
