@@ -7,32 +7,62 @@ import {
 } from '@angular/common/http';
 import { Inject, Injectable, Provider } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, catchError, Observable } from 'rxjs';
+import {
+  BehaviorSubject,
+  catchError,
+  Observable,
+  of,
+  switchMap,
+  throwError,
+  withLatestFrom,
+} from 'rxjs';
+import { environment } from '../environments/environment';
 
-import { environment} from '../environments/environment'
 import { API_ERROR } from './shared/constants';
+import { UserService } from './user/user.service';
+const apiURL = environment.apiUrl;
 
-const apiUrl =  environment.apiUrl
-
+const apiUrl = environment.apiUrl;
 
 @Injectable()
 export class AppInterceptor implements HttpInterceptor {
-  constructor(@Inject(API_ERROR)private apiError: BehaviorSubject<Error | null>,
-  private router: Router) {}
+  constructor(
+    @Inject(API_ERROR) private apiError: BehaviorSubject<Error | null>,
+    private router: Router,
+    private userService: UserService
+  ) {}
 
   intercept(
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     if (req.url.startsWith('/api')) {
-      req = req.clone({ url: req.url.replace('/api', apiUrl), withCredentials: true})
+      req = req.clone({
+        url: req.url.replace('/api', apiURL),
+        withCredentials: true,
+      });
     }
     return next.handle(req).pipe(
-      catchError(err => {
-        this.apiError.next(err);
-        this.router.navigate(['/error'])
-        return [err]
-    }));
+      catchError((err) =>
+        of(err).pipe(
+          // combineLatest([err], this.authService.user$).pipe(take(1))
+          withLatestFrom(this.userService.user$),
+          switchMap(([err, user]) => {
+            if (err.status === 401) {
+              if (!user) {
+                this.router.navigate(['/auth/login']);
+              } else {
+                this.router.navigate(['/auth/no-permissions']);
+              }
+            } else {
+              this.apiError.next(err);
+              this.router.navigate(['/error']);
+            }
+            return throwError(() => err);
+          })
+        )
+      )
+    );
   }
 }
 
