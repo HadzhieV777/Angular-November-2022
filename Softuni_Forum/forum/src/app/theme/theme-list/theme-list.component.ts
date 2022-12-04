@@ -1,31 +1,30 @@
+
 import { Component, OnInit } from '@angular/core';
-import { UserService } from 'src/app/user/user.service';
 import { ApiService } from '../../api.service';
-import { ITheme } from '../../shared/interfaces/theme';
+import { ITheme } from '../../shared/interfaces';
+
 @Component({
   selector: 'app-theme-list',
   templateUrl: './theme-list.component.html',
-  styleUrls: ['./theme-list.component.scss'],
+  styleUrls: ['./theme-list.component.scss']
 })
 export class ThemeListComponent implements OnInit {
+
   themeList: ITheme[] | null = null;
   errorFetcingData = false;
-  
-  get isLogged(): boolean {
-    return this.userService.isLogged;
-  }
 
-
-  constructor(
-    private apiService: ApiService,
-    private userService: UserService) {}
+  constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
     this.apiService.loadThemes().subscribe({
       next: (value) => {
         this.themeList = value;
       },
-      error: (err) => console.log(err),
+      error: (err) => {
+        this.errorFetcingData = true;
+        console.error(err);
+      }
     });
   }
+
 }
