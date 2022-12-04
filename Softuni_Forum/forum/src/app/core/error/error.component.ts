@@ -8,7 +8,8 @@ import { API_ERROR } from 'src/app/shared/constants';
   templateUrl: './error.component.html',
   styleUrls: ['./error.component.scss'],
 })
-export class ErrorComponent implements OnInit, OnDestroy {
+export class ErrorComponent implements OnDestroy {
+
   apiError$ = this.apiError.asObservable();
 
   constructor(
@@ -17,12 +18,11 @@ export class ErrorComponent implements OnInit, OnDestroy {
   ) {
     this.apiError$.pipe(debounceTime(0), take(1), filter(val => !val)).subscribe(() => {
       this.router.navigate(['/']);
-    })
+    });
   }
 
   ngOnDestroy(): void {
-    this.apiError.next(null)
+    this.apiError.next(null);
   }
-  
-  ngOnInit(): void {}
+
 }
