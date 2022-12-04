@@ -19,5 +19,10 @@ export class ErrorComponent implements OnInit, OnDestroy {
       this.router.navigate(['/']);
     })
   }
+
+  ngOnDestroy(): void {
+    this.apiError.next(null)
+  }
+  
   ngOnInit(): void {}
 }
