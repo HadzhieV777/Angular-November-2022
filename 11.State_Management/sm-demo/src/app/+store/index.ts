@@ -1,16 +1,20 @@
 import { ActionReducerMap, createReducer, on } from '@ngrx/store';
-import { increment } from './actions';
+import { increment, setValue } from './actions';
+import { routerReducer } from '@ngrx/router-store';
 
-interface IMainState {
+export interface IMainState {
   counter: number;
+  users: null | any[];
 }
 
 interface IAppState {
   main: IMainState;
+  router: ReturnType<typeof routerReducer>
 }
 
 const mainInitialState: IMainState = {
   counter: 0,
+  users: null
 };
 
 const mainReducer = createReducer<IMainState>(
@@ -21,9 +25,14 @@ const mainReducer = createReducer<IMainState>(
       ...state,
       counter: counter + 1,
     };
+  }),
+  on(setValue, (state, action) => {
+    const { counter } = action;
+    return { ...state, counter };
   })
 );
 
 export const reducers: ActionReducerMap<IAppState> = {
   main: mainReducer,
+  router: routerReducer,
 };
