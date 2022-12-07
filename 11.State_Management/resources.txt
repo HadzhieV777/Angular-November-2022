@@ -1,0 +1,6 @@
+--- NgRX ---
+https://betterprogramming.pub/angular-getting-started-with-ngrx-75b9139c23eb
+https://ngrx.io/resources
+https://stackabuse.com/beginners-guide-to-ngrx-and-angular/
+https://ngrx-course.com/course/introduction/what-is-ngrx/
+https://ngserve.io/ngrx-tutorial-understanding-the-redux-pattern/
